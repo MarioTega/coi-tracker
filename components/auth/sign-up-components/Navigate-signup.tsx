@@ -21,10 +21,15 @@ export default function NavigateSignup({page,setPage}:NavigateSignupProps){
                 {buttons.previouspage}
               </button>
         
-            
-              <button onClick={() => setPage(page + 1)}  disabled={page === 3} className={` ${page === 3 ? 'invisible' : ''}`}>
-                Next
+              <button onClick={() => setPage(page + 1)}  className={` ${page === 1 ? 'visible' : 'invisible'}`}>
+                {buttons.firstPage}
               </button>
+              <button onClick={() => setPage(page + 1)}  disabled={page === 3} className={` ${page === 3 || page === 1 ? 'invisible' : ''}`}>
+                {buttons.nextpage}
+              </button>
+              <Link href="/payment" className={` ${page === 3 ? 'visible' : 'invisible'}`}>
+                {buttons.lastpage}
+              </Link>
             
 
         </div>
