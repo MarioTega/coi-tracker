@@ -1,10 +1,11 @@
-'use client';
-import { useState, useEffect, useRef } from 'react';
+'use server';
+
 import { VendorComplianceDashboard } from '@/components/dashboard/VectorCompliance';
 
 export default function Dashboard(){
-    const [role,setRole] = useState<'admin' | 'user' | 'vendor'>('user');
+    
     return(
+        
         <VendorComplianceDashboard
             organizationName="Example Organization"
             vendors={[

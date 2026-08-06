@@ -1,10 +1,46 @@
 'use client'
 import { useState,useEffect,useRef } from 'react'
-import SignUp from '@/components/auth/Signup'
+import SignUpForm1 from '@/components/auth/sign-up-components/Signup-form1'
+import Link from 'next/link'
+import NavigateSignup from '@/components/auth/sign-up-components/Navigate-signup'
+import SignUpForm2 from '@/components/auth/sign-up-components/Signup-form2'
+import Payment from '@/components/payment/Payment'
 
-
-export default function Register(){
+export interface userData {
+    fullName?: string;
+    email?: string;
+    password?: string;
+    companyName?: string;
+    companySize?: string;
+}
+export default function SignUp(){
+    const[page,setPage] = useState<number>(1);
+    const[userData,setUserData] = useState<userData>({
+        fullName: '',
+        email: '',
+        password: '',
+        companyName: '',
+        companySize: ''
+    });
     return(
-        <SignUp />
+        <div>
+        {page===1 && (
+            <div>
+            <h1>Welcome to CertTracker</h1>
+            <h2>Never fall behind on your insurance obligations again!</h2>
+            <p>Already have an account? <Link href="/sign-in">Sign in here</Link></p>
+            </div>
+        )}
+        {page===2 && (
+            <SignUpForm1  fullName={userData.fullName} email={userData.email} password={userData.password} setUserData={setUserData} />
+        )}
+        {page===3 && (
+            <SignUpForm2 companyName={userData.companyName} companySize={userData.companySize} setUserData={setUserData} />
+        )}
+        <NavigateSignup
+         page={page}
+         setPage={setPage}
+         />
+        </div>
     )
 }
