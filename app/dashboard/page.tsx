@@ -1,4 +1,4 @@
-'use server';
+
 
 import { VendorComplianceDashboard } from '@/components/dashboard/VectorCompliance';
 

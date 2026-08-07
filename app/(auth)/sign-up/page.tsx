@@ -1,17 +1,19 @@
 'use client'
-import { useState,useEffect,useRef } from 'react'
+import { useState,useEffect,useRef, SetStateAction } from 'react'
 import SignUpForm1 from '@/components/auth/sign-up-components/Signup-form1'
 import Link from 'next/link'
 import NavigateSignup from '@/components/auth/sign-up-components/Navigate-signup'
 import SignUpForm2 from '@/components/auth/sign-up-components/Signup-form2'
-import Payment from '@/components/payment/Payment'
+
 
 export interface userData {
-    fullName?: string;
-    email?: string;
-    password?: string;
-    companyName?: string;
-    companySize?: string;
+    fullName: string;
+    email: string;
+    password: string;
+    companyName: string;
+    companySize: string;
+    tier:string;
+    setUserData?: React.Dispatch<SetStateAction<userData>>
 }
 export default function SignUp(){
     const[page,setPage] = useState<number>(1);
@@ -20,7 +22,9 @@ export default function SignUp(){
         email: '',
         password: '',
         companyName: '',
-        companySize: ''
+        companySize: '',
+        tier: 'free'
+
     });
     return(
         <div>

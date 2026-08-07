@@ -1,5 +1,6 @@
 'use server';
 import {createAdminClient} from '@/lib/supabase/admin'
+import { redirect } from 'next/navigation';
 
 export async function SignInAction(formData: FormData) {
     const supabase = createAdminClient()
@@ -12,7 +13,7 @@ export async function SignInAction(formData: FormData) {
     if(error){
         return {success:false,error:error.message}
     }
-    return {success:true,data}
+    redirect('/dashboard')
 
 }
 

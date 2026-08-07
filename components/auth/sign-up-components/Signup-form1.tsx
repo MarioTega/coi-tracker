@@ -1,12 +1,11 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
+import { userData } from '@/app/(auth)/sign-up/page';
 interface SignUpForm1Props {
-    fullName?: string;
-    email?: string;
-    password?: string;
-    setUserData: React.Dispatch<React.SetStateAction<{
-      
-    }>>;
+    fullName: string;
+    email: string;
+    password: string;
+    setUserData: React.Dispatch<React.SetStateAction<userData>>;
 }
 
 export default function SignUpForm1({fullName,email,password,setUserData}:SignUpForm1Props){

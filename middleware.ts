@@ -32,7 +32,11 @@ export async function middleware(request: NextRequest) {
 
   // Do not remove this — it refreshes the session and must run before
   // any other logic that reads the user.
-  await supabase.auth.getUser()
+  const{data,error}=await supabase.auth.getUser()
+  /*if(data.user==null && request.nextUrl.pathname.startsWith('/dashboard')){
+    return NextResponse.redirect(new URL('/sign-in',request.url))
+
+  }*/
 
   return supabaseResponse
 }

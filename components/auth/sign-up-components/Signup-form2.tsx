@@ -1,11 +1,10 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
+import { userData } from '@/app/(auth)/sign-up/page';
 interface SignupForm2Props {
-    companyName?: string;
-    companySize?: string;
-    setUserData: React.Dispatch<React.SetStateAction<{
-       
-    }>>;
+    companyName: string;
+    companySize: string;
+    setUserData: React.Dispatch<React.SetStateAction<userData>>;
 }
  export default function SignUpForm2({companyName, companySize, setUserData}:SignupForm2Props) {
     return(

@@ -1,6 +1,7 @@
+'use server';
 import Link from 'next/link';
 
-export default function Home() {
+export default async function Home() {
   return (
     <main>
     <p>Your Content Here</p>
